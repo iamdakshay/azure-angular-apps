@@ -1,0 +1,17 @@
+<div style="width:33%;margin-left:auto;margin-right:auto" class="alert alert-info">
+    <div>
+      Welcome to chat application created by
+      <img width="150" src="AkshayLetters.png">
+    your network id: {{socketId}}
+    </div>
+    <div class="alert alert-success" style="height:300px;overflow-y:auto" #chatwindow>
+      <div *ngFor="let message of messages" class="alert" [ngClass]="(socketId==message.from)? 'sent-chat alert-info':'received-chat alert-warning'">
+        <div *ngIf="message.text==':)'"><span class="badge" *ngIf="socketId!=message.from">{{message.from}}</span> <i class="fa fa-smile-o" aria-hidden="true"></i></div>
+        <div *ngIf="message.text!=':)'"><span class="badge" *ngIf="socketId!=message.from">{{message.from}}</span> {{message.text}}</div>
+      </div>
+    </div>
+  <div class="alert alert-success ">
+      <textarea rows="4 " [(ngModel)]="message " (keydown.enter) = "sendMessage();false;" style="width:100% "></textarea>
+      <button (click)="sendSmily() " class="btn btn-default" style="margin-left:auto; "><i class="fa fa-smile-o" aria-hidden="true"></i></button>
+  </div>
+  </div>

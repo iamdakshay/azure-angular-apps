@@ -1,0 +1,8 @@
+node_modules/
+bower_components/
+typings/
+.tscache/
+dist/
+tmp/
+npm-debug.log
+src/.baseDir.ts

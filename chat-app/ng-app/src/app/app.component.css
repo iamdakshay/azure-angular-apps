@@ -1,0 +1,8 @@
+.sent-chat {
+    float: right !important;
+  }
+
+  .received-chat {
+    float: left !important;
+  }
+
