@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   messages = [];
   socket;
   socketId;
-  
+
   @ViewChild("chatwindow") private chat_window: ElementRef;
 
   ngOnInit() {
@@ -22,14 +22,17 @@ export class AppComponent implements OnInit, AfterViewChecked {
     this.socket.on("new_message", (message) => {
       this.messages.push(message);
     });
-    this.socket.on("connected", (data)=> {
-this.socketId = data.clientId;
+    this.socket.on("connected", (data) => {
+      this.socketId = data.clientId;
+    });
+    this.socket.on("take_history", (data) => {
+      this.messages = data;
     });
   }
 
-  ngAfterViewChecked() {    
-    this.chat_window.nativeElement.scrollTop = this.chat_window.nativeElement.scrollHeight;    
-} 
+  ngAfterViewChecked() {
+    this.chat_window.nativeElement.scrollTop = this.chat_window.nativeElement.scrollHeight;
+  }
   sendMessage = () => {
     this.socket.emit("send_message", this.message);
     this.message = "";
@@ -37,5 +40,13 @@ this.socketId = data.clientId;
 
   sendSmily = () => {
     this.socket.emit("send_message", ":)");
+  };
+
+  clearChatWindow = () => {
+    this.messages = [];
+  };
+
+  loadChatHistory = () => {
+    this.socket.emit("get_history");
   };
 }
