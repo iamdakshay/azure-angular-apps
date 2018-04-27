@@ -1,0 +1,18 @@
+<div class="note">
+        <i class="fa fa-times-circle delete" (click)="cancelClicked(note)"></i>
+
+        <div class="title" *ngIf="note.Id">{{note.Title}}</div>
+        <input class="title form-control" placeholder="title:*" type="text" maxlength="20" *ngIf="!note.Id"
+                [(ngModel)]="note.Title" />
+
+        <div class="content" *ngIf="note.Id">{{note.Description}}</div>
+        <textarea class="content form-control" placeholder="description:*" *ngIf="!note.Id" [(ngModel)]="note.Description"></textarea>
+
+        <div class="date" *ngIf="note.Id">{{note.CreatedAt | date:"'Created on 'EEE dd-MMM-yy 'at' h:mm a":'':''}}</div>
+        
+        <button type="button" class="btn btn-success btn-sm save"  *ngIf="!note.Id" (click)="addNoteClicked(note)">Stick it !</button>
+
+
+
+
+</div>

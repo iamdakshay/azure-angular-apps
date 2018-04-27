@@ -1,0 +1,18 @@
+.profile{
+	background-color: ghostwhite;
+	color:gray;
+	float: right;
+	margin: 11px;
+}
+a:hover{
+	text-decoration: none !important;
+}
+
+img{
+	margin:5px;
+}
+
+.notesLink{
+
+	color: white;
+}

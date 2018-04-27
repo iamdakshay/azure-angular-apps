@@ -1,0 +1,8 @@
+.alert{
+    width:fit-content;
+position: fixed;   
+top: 120px;
+font-size: small;
+right:0.5%;
+z-index: 9999; 
+}

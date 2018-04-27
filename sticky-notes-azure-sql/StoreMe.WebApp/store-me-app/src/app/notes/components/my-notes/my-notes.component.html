@@ -1,0 +1,10 @@
+<div class="alert search">
+  <input type="text" class="form-control searchinput" [(ngModel)]="query" placeholder="Search . . ." (keyup.enter)="ngOnInit()">
+</div>
+
+<app-alert *ngIf="alert" [alert]="alert" (closed)="alertClosed($event)"></app-alert>
+
+<tag-input [(ngModel)]='tags' [maxItems]='5' class="tag-input"></tag-input>
+<app-note-card [note]="newNote" (addNote)="addNote($event)" (deleteNote)="deleteNote($event)"></app-note-card>
+
+<app-note-card *ngFor="let note of notes | orderby:'CreatedAt':false; let i=index" [note]="note" [index]="i" (deleteNote)="deleteNote($event)"></app-note-card>
