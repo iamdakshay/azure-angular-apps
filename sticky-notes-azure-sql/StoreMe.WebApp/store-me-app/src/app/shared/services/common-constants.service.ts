@@ -14,8 +14,8 @@ export class CommonConstantsService {
 
   public static AAD = {
     INSTANCE: "https://login.microsoftonline.com/",
-    TENANT: "nitorinfotech.com",
-    APPCLIENTID: "4fa90b6b-1681-4736-8956-51f38b11998f",
-    APICLIENTID: "15bc0741-671a-4995-8603-5f128a254bc3"
+    TENANT: "",
+    APPCLIENTID: "",
+    APICLIENTID: ""
   }
 }
